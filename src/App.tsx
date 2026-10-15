@@ -32,28 +32,68 @@ const services = [
 
 const projects = [
   {
-    image: '/images/projects/image.png',
-    title: 'Reforma de fachada',
-    category: 'Fachadas y exteriores',
-    description: 'Una fachada renovada con líneas limpias y acabados que transforman la presencia de la vivienda.',
+    image: '/images/projects/tejado-teja.jpg',
+    title: 'Cubierta de teja',
+    category: 'Tejados',
+    alt: 'Cubierta de teja árabe vista desde el tejado, con chimenea y ventana de cubierta',
+    description:
+      'Vista de una cubierta de teja árabe desde el propio tejado, con la cumbrera, la chimenea, los pasos de instalaciones y una ventana de cubierta.',
   },
   {
-    image: '/images/projects/image copy.png',
-    title: 'Pavimento exterior',
-    category: 'Alicatados y exteriores',
-    description: 'Colocación de pavimento cerámico para crear un patio resistente, funcional y fácil de mantener.',
-  },
-  {
-    image: '/images/projects/image copy 2.png',
+    image: '/images/projects/tejado-pizarra.jpg',
     title: 'Cubierta de pizarra',
-    category: 'Tejados y cubiertas',
-    description: 'Trabajo sobre cubierta inclinada para conservar la protección y el carácter de la vivienda.',
+    category: 'Tejados',
+    alt: 'Cubierta de pizarra con su cumbrera, vista desde la altura',
+    description:
+      'Cubierta de pizarra con su cumbrera de piezas curvas, vista desde la altura con las casas del entorno al fondo.',
   },
   {
-    image: '/images/projects/image copy 3.png',
-    title: 'Encuentro de tejado',
-    category: 'Reparación de goteras',
-    description: 'Intervención precisa en una ventana de tejado para resolver puntos sensibles de la cubierta.',
+    image: '/images/projects/canalon-detalle.jpg',
+    title: 'Detalle de canalón',
+    category: 'Canalones',
+    alt: 'Canalón pintado de gris bajo el alero, junto a la bajante',
+    description:
+      'Detalle de un canalón pintado de gris bajo el alero, con el paso de la bajante y la salida de desagüe.',
+  },
+  {
+    image: '/images/projects/canalon-impermeabilizado.jpg',
+    title: 'Canalón impermeabilizado',
+    category: 'Canalones',
+    alt: 'Interior de un canalón impermeabilizado visto desde la cubierta',
+    description:
+      'Interior de un canalón impermeabilizado y pintado de gris, visto en longitudinal desde la cubierta, con las tejas del alero a un lado.',
+  },
+  {
+    image: '/images/projects/fachada-pintada-detalle.jpg',
+    title: 'Fachada pintada',
+    category: 'Fachadas',
+    alt: 'Muro exterior pintado de rojo junto a una vivienda de ladrillo',
+    description:
+      'Muro exterior pintado de rojo junto a una vivienda de ladrillo, con ventanal, puerta metálica y terreno seco alrededor.',
+  },
+  {
+    image: '/images/projects/fachada-pintada-general.jpg',
+    title: 'Fachada pintada, vista general',
+    category: 'Fachadas',
+    alt: 'Muro largo pintado de rojo bajo el alero de tejado',
+    description:
+      'Muro largo pintado de rojo bajo el alero de tejado, con terreno seco y un árbol en primer plano.',
+  },
+  {
+    image: '/images/projects/terraza-impermeabilizada.jpg',
+    title: 'Terraza impermeabilizada',
+    category: 'Otros trabajos',
+    alt: 'Terraza con el suelo impermeabilizado en tono ocre y muro de ladrillo',
+    description:
+      'Terraza con el suelo impermeabilizado en tono ocre, muro de ladrillo y ventanas con contraventanas.',
+  },
+  {
+    image: '/images/projects/patio-alicatado.jpg',
+    title: 'Patio alicatado',
+    category: 'Otros trabajos',
+    alt: 'Patio alicatado con baldosas terracota y escalera metálica',
+    description:
+      'Patio alicatado con baldosas cuadradas de tono terracota, escalera metálica y un árbol en el centro.',
   },
 ];
 
@@ -81,7 +121,7 @@ function App() {
     <div className="site-shell">
       <header className="topbar">
         <a href="#inicio" className="brand" onClick={closeMenu} aria-label="Reformas Guadalajara, inicio">
-          <img src="/images/image.png" alt="Reformas Guadalajara" />
+          <img src="/images/logo-reformas-guadalajara-transparente.png" alt="Reformas Guadalajara" />
         </a>
         <nav className={`main-nav ${menuOpen ? 'is-open' : ''}`}>
           <a href="#servicios" onClick={closeMenu}>Servicios</a>
@@ -112,7 +152,7 @@ function App() {
             </div>
             <div className="hero-visual">
               <div className="hero-visual-accent" />
-              <img src="/images/projects/image copy 2.png" alt="Tejado de pizarra realizado por Reformas Guadalajara" />
+              <img src="/images/projects/tejado-teja.jpg" alt="Cubierta de teja árabe vista desde el tejado, con chimenea y ventana de cubierta" />
               <div className="hero-caption"><span>Especialistas en</span><strong>tejados y cubiertas</strong></div>
               <div className="hero-number">01 <span>/ 04</span></div>
             </div>
@@ -158,7 +198,7 @@ function App() {
           <div className="projects-grid">
             {projects.map((project, index) => (
               <button className={`project-card project-${index + 1}`} key={project.title} onClick={() => setActiveProject(index)}>
-                <img src={project.image} alt={project.title} />
+                <img src={project.image} alt={project.alt} />
                 <div className="project-overlay"><span>{project.category}</span><strong>{project.title}</strong><div className="project-view">Ver proyecto <ArrowUpRight size={16} /></div></div>
               </button>
             ))}
@@ -175,11 +215,11 @@ function App() {
         </section>
       </main>
 
-      <footer className="footer"><a href="#inicio" className="footer-brand"><img src="/images/image.png" alt="" /></a><p>Reformas Guadalajara<br /><span>Guadalajara y provincia</span></p><div className="footer-links"><a href={whatsappLink} target="_blank" rel="noreferrer">WhatsApp</a><a href={phoneLink}>Llamar</a><a href={emailLink}>Email</a></div><p className="footer-copy">© {new Date().getFullYear()} Reformas Guadalajara</p></footer>
+      <footer className="footer"><a href="#inicio" className="footer-brand"><img src="/images/logo-reformas-guadalajara-transparente.png" alt="" /></a><p>Reformas Guadalajara<br /><span>Guadalajara y provincia</span></p><div className="footer-links"><a href={whatsappLink} target="_blank" rel="noreferrer">WhatsApp</a><a href={phoneLink}>Llamar</a><a href={emailLink}>Email</a></div><p className="footer-copy">© {new Date().getFullYear()} Reformas Guadalajara</p></footer>
 
       <div className="mobile-bar"><a href={whatsappLink} target="_blank" rel="noreferrer"><MessageCircle size={18} /> WhatsApp</a><a href={phoneLink}><Phone size={18} /> Llamar</a></div>
 
-      {activeProject !== null && <div className="lightbox" role="dialog" aria-modal="true" aria-label={projects[activeProject].title} onClick={() => setActiveProject(null)}><button className="lightbox-close" onClick={() => setActiveProject(null)} aria-label="Cerrar"><X size={25} /></button><div className="lightbox-content" onClick={(event) => event.stopPropagation()}><img src={projects[activeProject].image} alt={projects[activeProject].title} /><div><span>{projects[activeProject].category}</span><h3>{projects[activeProject].title}</h3><p>{projects[activeProject].description}</p></div></div></div>}
+      {activeProject !== null && <div className="lightbox" role="dialog" aria-modal="true" aria-label={projects[activeProject].title} onClick={() => setActiveProject(null)}><button className="lightbox-close" onClick={() => setActiveProject(null)} aria-label="Cerrar"><X size={25} /></button><div className="lightbox-content" onClick={(event) => event.stopPropagation()}><img src={projects[activeProject].image} alt={projects[activeProject].alt} /><div><span>{projects[activeProject].category}</span><h3>{projects[activeProject].title}</h3><p>{projects[activeProject].description}</p></div></div></div>}
     </div>
   );
 }
