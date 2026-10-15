@@ -151,10 +151,8 @@ function App() {
               </div>
             </div>
             <div className="hero-visual">
-              <div className="hero-visual-accent" />
-              <img src="/images/projects/tejado-teja.jpg" alt="Cubierta de teja árabe vista desde el tejado, con chimenea y ventana de cubierta" />
+              <img className="hero-illustration" src="/images/hero-roof-illustration.png" alt="Ilustración de una cubierta de teja en perspectiva con canalón y bajante" />
               <div className="hero-caption"><span>Especialistas en</span><strong>tejados y cubiertas</strong></div>
-              <div className="hero-number">01 <span>/ 04</span></div>
             </div>
           </div>
           <a href="#servicios" className="scroll-hint"><span>Descubre nuestros servicios</span><ChevronDown size={18} /></a>
