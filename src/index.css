@@ -40,7 +40,7 @@ h1 em, h2 em { color: var(--forest); font-family: 'Playfair Display', Georgia, s
 .text-link:hover, .arrow-link:hover { text-decoration: underline; text-underline-offset: 4px; }
 .hero-proof { color: #6B7F95; display: flex; flex-wrap: wrap; font-family: 'DM Mono', monospace; font-size: 9px; gap: 18px; margin-top: 42px; text-transform: uppercase; }
 .hero-proof span { align-items: center; display: flex; gap: 7px; }
-.hero-visual { height: min(72vh, 680px); margin-left: -35px; max-width: none; min-height: 540px; position: relative; width: clamp(560px, 42vw, 680px); }
+.hero-visual { height: min(72vh, 680px); margin-left: -35px; max-width: none; min-height: 0; position: relative; width: min(100%, clamp(420px, 42vw, 680px)); }
 .hero-visual img { display: block; height: 100%; object-fit: contain; width: 100%; }
 .hero-caption { background: var(--ink); bottom: 78px; color: white; display: flex; flex-direction: column; left: clamp(22px, 9%, 70px); padding: 16px 22px; position: absolute; z-index: 3; }
 .hero-caption span { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: .12em; margin-bottom: 6px; text-transform: uppercase; }
