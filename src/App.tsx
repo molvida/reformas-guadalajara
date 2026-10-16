@@ -151,7 +151,7 @@ function App() {
               </div>
             </div>
             <div className="hero-visual">
-              <img className="hero-illustration" src="/images/hero-roof-illustration.png" alt="Ilustración de una cubierta de teja en perspectiva con canalón y bajante" />
+              <img className="hero-illustration" src="/images/hero-roof-illustration.png" alt="Ilustración de una cubierta de teja en perspectiva con canalón y bajante" fetchPriority="high" decoding="async" />
               <div className="hero-caption"><span>Especialistas en</span><strong>tejados y cubiertas</strong></div>
             </div>
           </div>
@@ -171,7 +171,7 @@ function App() {
           <div className="intro-stats">
             <div><strong>+15</strong><span>años de experiencia</span></div>
             <div><strong>08—22</strong><span>horario de atención</span></div>
-            <div><strong>01</strong><span>equipo para cada proyecto</span></div>
+            <div><strong>Guadalajara</strong><span>y provincia</span></div>
           </div>
         </section>
 
@@ -196,7 +196,7 @@ function App() {
           <div className="projects-grid">
             {projects.map((project, index) => (
               <button className={`project-card project-${index + 1}`} key={project.title} onClick={() => setActiveProject(index)}>
-                <img src={project.image} alt={project.alt} />
+                <img src={project.image} alt={project.alt} loading="lazy" decoding="async" />
                 <div className="project-overlay"><span>{project.category}</span><strong>{project.title}</strong><div className="project-view">Ver proyecto <ArrowUpRight size={16} /></div></div>
               </button>
             ))}
