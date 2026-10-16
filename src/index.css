@@ -118,6 +118,15 @@ h1 em, h2 em { color: var(--forest); font-family: 'Playfair Display', Georgia, s
 a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; } }
 
+.privacy-consent { align-items: flex-start !important; color: var(--muted) !important; flex-direction: row !important; font-family: 'Manrope', sans-serif !important; font-size: 11px !important; gap: 10px !important; letter-spacing: 0 !important; line-height: 1.6; text-transform: none !important; }
+.privacy-consent input { accent-color: var(--forest); border: 0; flex: 0 0 16px; height: 16px; margin: 1px 0 0; padding: 0; resize: none; }
+.privacy-consent a { color: var(--forest); font-weight: 800; text-decoration: underline; text-underline-offset: 2px; }
+.footer-legal { border-top: 1px solid rgba(255,255,255,.14); color: #A6BCD0; display: flex; flex-wrap: wrap; font-size: 10px; gap: 18px; grid-column: 1 / -1; padding-top: 16px; }
+.footer-legal a:hover { color: white; }
+.form-honeypot { height: 1px; left: -10000px; overflow: hidden; position: absolute; top: auto; width: 1px; }
+.form-feedback { color: #8A352B; font-size: 12px; line-height: 1.6; margin: -8px 0 0; }
+.contact-form button:disabled { cursor: wait; opacity: .7; }
+
 /* Keep service names clear and the mobile list compact. */
 .service-card h3 { color: var(--ink); font-size: 19px; font-weight: 750; letter-spacing: -.04em; line-height: 1.25; }
 .service-card p { font-size: 13px; line-height: 1.65; }

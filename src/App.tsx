@@ -16,10 +16,11 @@ import {
   X,
 } from 'lucide-react';
 
-const phoneNumber = '644 664 235';
+const phoneNumber = '+34 644 66 42 35';
 const phoneLink = 'tel:+34644664235';
 const whatsappLink = 'https://wa.me/34644664235';
-const emailLink = 'mailto:reformasguadalajara1@gmail.com';
+const businessEmail = 'Tejadosycubiertasvaloria@gmail.com';
+const emailLink = `mailto:${businessEmail}`;
 
 const services = [
   { title: 'Tejados y cubiertas', text: 'Reparación, retejado y soluciones duraderas para proteger tu vivienda.', icon: House },
@@ -100,19 +101,41 @@ const projects = [
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeProject, setActiveProject] = useState<number | null>(null);
-  const [submitted, setSubmitted] = useState(false);
+  const [submitState, setSubmitState] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const [submitMessage, setSubmitMessage] = useState('');
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
-    const name = String(formData.get('name') ?? '');
-    const phone = String(formData.get('phone') ?? '');
-    const email = String(formData.get('email') ?? '');
-    const message = String(formData.get('message') ?? '');
-    const subject = encodeURIComponent(`Solicitud de presupuesto de ${name}`);
-    const body = encodeURIComponent(`Nombre: ${name}\nTeléfono: ${phone}\nEmail: ${email}\n\nProyecto:\n${message}`);
-    window.location.href = `${emailLink}?subject=${subject}&body=${body}`;
-    setSubmitted(true);
+    setSubmitState('sending');
+    setSubmitMessage('');
+
+    try {
+      const payload = {
+        name: formData.get('name'),
+        phone: formData.get('phone'),
+        email: formData.get('email'),
+        message: formData.get('message'),
+      };
+      const response = await fetch(`https://formsubmit.co/ajax/${businessEmail}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          ...payload,
+          _subject: `Nueva solicitud de presupuesto: ${payload.name}`,
+          _replyto: payload.email,
+          _template: 'table',
+          _honey: formData.get('website'),
+          _url: window.location.href,
+        }),
+      });
+      if (!response.ok) throw new Error('email_delivery_failed');
+      await response.json();
+      setSubmitState('success');
+    } catch {
+      setSubmitState('error');
+      setSubmitMessage('No se pudo enviar la solicitud. Llámanos o escríbenos por WhatsApp.');
+    }
   };
 
   const closeMenu = () => setMenuOpen(false);
@@ -147,7 +170,7 @@ function App() {
               </div>
               <div className="hero-proof">
                 <span><ShieldCheck size={18} /> Más de 15 años de experiencia</span>
-                <span><Clock3 size={18} /> De 8:00 a 22:00</span>
+                <span><Clock3 size={18} /> Lunes a viernes · 8:00 a 22:00</span>
               </div>
             </div>
             <div className="hero-visual">
@@ -170,7 +193,7 @@ function App() {
           </div>
           <div className="intro-stats">
             <div><strong>+15</strong><span>años de experiencia</span></div>
-            <div><strong>08—22</strong><span>horario de atención</span></div>
+            <div><strong>08—22</strong><span>lunes a viernes</span></div>
             <div><strong>Guadalajara</strong><span>y provincia</span></div>
           </div>
         </section>
@@ -205,15 +228,15 @@ function App() {
 
         <section className="contact-section" id="contacto">
           <div className="contact-inner">
-            <div className="contact-copy"><div className="section-label light">04 — Hablemos</div><h2>¿Tienes un proyecto<br />en mente?</h2><p>Cuéntanos qué necesitas y te ayudaremos a encontrar la mejor solución para tu vivienda o negocio.</p><div className="contact-direct"><a href={phoneLink}><Phone size={18} /><span><small>Llámanos</small>{phoneNumber}</span></a><a href={emailLink}><Mail size={18} /><span><small>Escríbenos</small>reformasguadalajara1@gmail.com</span></a></div></div>
+            <div className="contact-copy"><div className="section-label light">04 — Hablemos</div><h2>¿Tienes un proyecto<br />en mente?</h2><p>Cuéntanos qué necesitas y te ayudaremos a encontrar la mejor solución para tu vivienda o negocio.</p><div className="contact-direct"><a href={phoneLink}><Phone size={18} /><span><small>Llámanos</small>{phoneNumber}</span></a><a href={emailLink}><Mail size={18} /><span><small>Escríbenos</small>{businessEmail}</span></a></div></div>
             <div className="contact-form-wrap">
-              {submitted ? <div className="success-message"><div className="success-icon"><Check size={27} /></div><h3>Hemos recibido tu mensaje</h3><p>Gracias por contactar. Te responderemos lo antes posible.</p><a className="button button-light" href={whatsappLink} target="_blank" rel="noreferrer">Escribir por WhatsApp <ArrowUpRight size={17} /></a></div> : <form className="contact-form" onSubmit={handleSubmit}><div className="form-row"><label>Nombre<input required name="name" placeholder="Tu nombre" /></label><label>Teléfono<input required name="phone" type="tel" placeholder="Tu teléfono" /></label></div><label>Email<input required name="email" type="email" placeholder="tu@email.com" /></label><label>¿Qué necesitas?<textarea required name="message" rows={4} placeholder="Cuéntanos brevemente tu proyecto..." /></label><button type="submit" className="button button-yellow">Pedir presupuesto <ArrowUpRight size={18} /></button></form>}
+              {submitState === 'success' ? <div className="success-message" role="status"><div className="success-icon"><Check size={27} /></div><h3>Solicitud enviada</h3><p>Gracias por escribirnos. Hemos recibido tu solicitud y te responderemos lo antes posible.</p><a className="button button-light" href={whatsappLink} target="_blank" rel="noreferrer">Escribir por WhatsApp <ArrowUpRight size={17} /></a></div> : <form className="contact-form" onSubmit={handleSubmit}><div className="form-row"><label>Nombre<input required name="name" placeholder="Tu nombre" /></label><label>Teléfono<input required name="phone" type="tel" placeholder="Tu teléfono" /></label></div><label>Email<input required name="email" type="email" placeholder="tu@email.com" /></label><label>¿Qué necesitas?<textarea required name="message" rows={4} placeholder="Cuéntanos brevemente tu proyecto..." /></label><label className="privacy-consent"><input required type="checkbox" name="privacy" /><span>He leído la <a href="/privacidad/" target="_blank" rel="noreferrer">Política de privacidad</a> y entiendo cómo se utilizarán mis datos para gestionar esta consulta.</span></label><label className="form-honeypot" aria-hidden="true">No rellenar<input name="website" tabIndex={-1} autoComplete="off" /></label>{submitState === 'error' && <p className="form-feedback" role="alert">{submitMessage}</p>}<button type="submit" className="button button-yellow" disabled={submitState === 'sending'}>{submitState === 'sending' ? 'Enviando…' : 'Pedir presupuesto'} <ArrowUpRight size={18} /></button></form>}
             </div>
           </div>
         </section>
       </main>
 
-      <footer className="footer"><a href="#inicio" className="footer-brand"><img src="/images/logo-reformas-guadalajara-transparente.png" alt="" /></a><p>Reformas Guadalajara<br /><span>Guadalajara y provincia</span></p><div className="footer-links"><a href={whatsappLink} target="_blank" rel="noreferrer">WhatsApp</a><a href={phoneLink}>Llamar</a><a href={emailLink}>Email</a></div><p className="footer-copy">© {new Date().getFullYear()} Reformas Guadalajara</p></footer>
+      <footer className="footer"><a href="#inicio" className="footer-brand"><img src="/images/logo-reformas-guadalajara-transparente.png" alt="" /></a><p>Reformas Guadalajara<br /><span>Guadalajara y provincia</span></p><div className="footer-links"><a href={whatsappLink} target="_blank" rel="noreferrer">WhatsApp</a><a href={phoneLink}>Llamar</a><a href={emailLink}>Email</a></div><p className="footer-copy">© {new Date().getFullYear()} Reformas Guadalajara</p><nav className="footer-legal" aria-label="Información legal"><a href="/aviso-legal/">Aviso legal</a><a href="/privacidad/">Privacidad</a><a href="/cookies/">Cookies</a></nav></footer>
 
       <div className="mobile-bar"><a href={whatsappLink} target="_blank" rel="noreferrer"><MessageCircle size={18} /> WhatsApp</a><a href={phoneLink}><Phone size={18} /> Llamar</a></div>
 
