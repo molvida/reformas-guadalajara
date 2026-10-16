@@ -242,10 +242,12 @@ function App() {
           <p>Reformas Guadalajara<br /><span>Guadalajara y provincia</span></p>
           <div className="footer-links"><a href={whatsappLink} target="_blank" rel="noreferrer">WhatsApp</a><a href={phoneLink}>Llamar</a><a href={emailLink}>Email</a></div>
         </div>
-        <nav className="footer-legal" aria-label="Información legal"><a href="/aviso-legal/">Aviso legal</a><a href="/privacidad/">Privacidad</a><a href="/cookies/">Cookies</a></nav>
+        <div className="footer-legal-row">
+          <nav className="footer-legal" aria-label="Información legal"><a href="/aviso-legal/">Aviso legal</a><a href="/privacidad/">Privacidad</a><a href="/cookies/">Cookies</a></nav>
+          <a className="footer-credit" href="https://molvida.es/" target="_blank" rel="noreferrer">Web creada por <strong>MOLVIDA</strong> <span aria-hidden="true">↗</span></a>
+        </div>
         <div className="footer-bottom">
           <p className="footer-copy">© {new Date().getFullYear()} Reformas Guadalajara</p>
-          <a className="footer-credit" href="https://molvida.es/" target="_blank" rel="noreferrer">Web creada por <strong>MOLVIDA</strong> <span aria-hidden="true">↗</span></a>
         </div>
       </footer>
 

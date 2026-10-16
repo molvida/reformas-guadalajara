@@ -112,8 +112,8 @@ h1 em, h2 em { color: var(--forest); font-family: 'Playfair Display', Georgia, s
 .footer-brand { background: var(--paper); border-radius: 8px; height: 66px; padding: 9px 11px; width: 68px; }
 .footer p { font-size: 11px; line-height: 1.6; margin: 0; }.footer p span, .footer-copy { color: #8FA6BC; }.footer-links { display: flex; gap: 20px; font-size: 11px; }.footer-links a:hover { color: var(--accent-light); }
 .footer-bottom { align-items: center; border-top: 1px solid rgba(255,255,255,.14); display: flex; justify-content: space-between; margin: 0 auto; max-width: 1176px; padding-top: 16px; width: 100%; }
-.footer-credit { color: #8FA6BC; display: inline-flex; font-size: 10px; gap: 4px; transition: color .2s ease; }
-.footer-credit strong, .footer-credit span { color: #C99A45; font-weight: 600; }
+.footer-credit { color: #A6BCD0; display: inline-flex; font-size: 13px; font-weight: 500; gap: 5px; transition: color .2s ease; }
+.footer-credit strong, .footer-credit span { color: #C99A45; font-weight: 700; }
 .footer-credit:hover { color: #D5E1EC; }
 .mobile-bar { display: none; }
 .lightbox { align-items: center; background: rgba(14,36,58,.92); display: flex; inset: 0; justify-content: center; padding: 30px; position: fixed; z-index: 50; }
@@ -126,12 +126,15 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .privacy-consent { align-items: flex-start !important; color: var(--muted) !important; flex-direction: row !important; font-family: 'Manrope', sans-serif !important; font-size: 11px !important; gap: 10px !important; letter-spacing: 0 !important; line-height: 1.6; text-transform: none !important; }
 .privacy-consent input { accent-color: var(--forest); border: 0; flex: 0 0 16px; height: 16px; margin: 1px 0 0; padding: 0; resize: none; }
 .privacy-consent a { color: var(--forest); font-weight: 800; text-decoration: underline; text-underline-offset: 2px; }
-.footer-legal { border-top: 1px solid rgba(255,255,255,.14); color: #A6BCD0; display: flex; flex-wrap: wrap; font-size: 10px; gap: 18px; margin: 0 auto 16px; max-width: 1176px; padding: 16px 0; width: 100%; }
+.footer-legal-row { align-items: center; border-top: 1px solid rgba(255,255,255,.14); display: flex; justify-content: space-between; margin: 0 auto; max-width: 1176px; padding: 16px 0; width: 100%; }
+.footer-legal { color: #A6BCD0; display: flex; flex-wrap: wrap; font-size: 10px; gap: 18px; margin: 0; }
 .footer-legal a:hover { color: white; }
 @media (max-width: 800px) {
   .footer { padding: 25px 20px 90px; }
   .footer-main { grid-template-columns: 68px minmax(0, 1fr); }
   .footer-links { flex-wrap: wrap; grid-column: 1 / -1; }
+  .footer-legal-row { align-items: flex-start; flex-direction: column; gap: 16px; }
+  .footer-credit { font-size: 12px; }
   .footer-bottom { align-items: flex-start; flex-direction: column; gap: 10px; }
   .footer-copy { order: 0; }
 }
