@@ -107,9 +107,14 @@ h1 em, h2 em { color: var(--forest); font-family: 'Playfair Display', Georgia, s
 .success-icon { align-items: center; background: var(--yellow); border-radius: 50%; color: #fff; display: flex; height: 54px; justify-content: center; margin-bottom: 24px; width: 54px; }
 .success-message h3 { font-size: 26px; letter-spacing: -.04em; margin-bottom: 12px; }
 .success-message p { color: var(--muted); font-size: 13px; margin-bottom: 27px; }
-.footer { align-items: center; background: #102F48; color: #D5E1EC; display: grid; gap: 20px; grid-template-columns: 1fr 1fr 1fr 1fr; padding: 25px max(32px, calc((100vw - 1176px) / 2)); }
+.footer { background: #102F48; color: #D5E1EC; display: flex; flex-direction: column; padding: 25px max(32px, calc((100vw - 1176px) / 2)); }
+.footer-main { align-items: center; display: grid; gap: 20px; grid-template-columns: 68px 1fr auto; margin: 0 auto; max-width: 1176px; padding-bottom: 24px; width: 100%; }
 .footer-brand { background: var(--paper); border-radius: 8px; height: 66px; padding: 9px 11px; width: 68px; }
-.footer p { font-size: 11px; line-height: 1.6; margin: 0; }.footer p span, .footer-copy { color: #8FA6BC; }.footer-links { display: flex; gap: 20px; font-size: 11px; }.footer-links a:hover { color: var(--accent-light); }.footer-copy { text-align: right; }
+.footer p { font-size: 11px; line-height: 1.6; margin: 0; }.footer p span, .footer-copy { color: #8FA6BC; }.footer-links { display: flex; gap: 20px; font-size: 11px; }.footer-links a:hover { color: var(--accent-light); }
+.footer-bottom { align-items: center; border-top: 1px solid rgba(255,255,255,.14); display: flex; justify-content: space-between; margin: 0 auto; max-width: 1176px; padding-top: 16px; width: 100%; }
+.footer-credit { color: #8FA6BC; display: inline-flex; font-size: 10px; gap: 4px; transition: color .2s ease; }
+.footer-credit strong, .footer-credit span { color: #C99A45; font-weight: 600; }
+.footer-credit:hover { color: #D5E1EC; }
 .mobile-bar { display: none; }
 .lightbox { align-items: center; background: rgba(14,36,58,.92); display: flex; inset: 0; justify-content: center; padding: 30px; position: fixed; z-index: 50; }
 .lightbox-content { align-items: center; display: grid; gap: 34px; grid-template-columns: minmax(0, 1fr) 270px; max-height: 90vh; max-width: 1030px; width: 100%; }.lightbox-content img { max-height: 78vh; object-fit: contain; width: 100%; }.lightbox-content span { color: var(--accent-light); font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }.lightbox-content h3 { color: white; font-family: 'Playfair Display', Georgia, serif; font-size: 34px; font-style: italic; font-weight: 600; margin: 12px 0; }.lightbox-content p { color: #BACDDE; font-size: 13px; line-height: 1.7; }.lightbox-close { background: none; border: 0; color: white; position: absolute; right: 28px; top: 25px; }
@@ -121,8 +126,15 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .privacy-consent { align-items: flex-start !important; color: var(--muted) !important; flex-direction: row !important; font-family: 'Manrope', sans-serif !important; font-size: 11px !important; gap: 10px !important; letter-spacing: 0 !important; line-height: 1.6; text-transform: none !important; }
 .privacy-consent input { accent-color: var(--forest); border: 0; flex: 0 0 16px; height: 16px; margin: 1px 0 0; padding: 0; resize: none; }
 .privacy-consent a { color: var(--forest); font-weight: 800; text-decoration: underline; text-underline-offset: 2px; }
-.footer-legal { border-top: 1px solid rgba(255,255,255,.14); color: #A6BCD0; display: flex; flex-wrap: wrap; font-size: 10px; gap: 18px; grid-column: 1 / -1; padding-top: 16px; }
+.footer-legal { border-top: 1px solid rgba(255,255,255,.14); color: #A6BCD0; display: flex; flex-wrap: wrap; font-size: 10px; gap: 18px; margin: 0 auto 16px; max-width: 1176px; padding: 16px 0; width: 100%; }
 .footer-legal a:hover { color: white; }
+@media (max-width: 800px) {
+  .footer { padding: 25px 20px 90px; }
+  .footer-main { grid-template-columns: 68px minmax(0, 1fr); }
+  .footer-links { flex-wrap: wrap; grid-column: 1 / -1; }
+  .footer-bottom { align-items: flex-start; flex-direction: column; gap: 10px; }
+  .footer-copy { order: 0; }
+}
 .form-honeypot { height: 1px; left: -10000px; overflow: hidden; position: absolute; top: auto; width: 1px; }
 .form-feedback { color: #8A352B; font-size: 12px; line-height: 1.6; margin: -8px 0 0; }
 .contact-form button:disabled { cursor: wait; opacity: .7; }

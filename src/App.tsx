@@ -236,7 +236,18 @@ function App() {
         </section>
       </main>
 
-      <footer className="footer"><a href="#inicio" className="footer-brand"><img src="/images/logo-reformas-guadalajara-transparente.png" alt="" /></a><p>Reformas Guadalajara<br /><span>Guadalajara y provincia</span></p><div className="footer-links"><a href={whatsappLink} target="_blank" rel="noreferrer">WhatsApp</a><a href={phoneLink}>Llamar</a><a href={emailLink}>Email</a></div><p className="footer-copy">© {new Date().getFullYear()} Reformas Guadalajara</p><nav className="footer-legal" aria-label="Información legal"><a href="/aviso-legal/">Aviso legal</a><a href="/privacidad/">Privacidad</a><a href="/cookies/">Cookies</a></nav></footer>
+      <footer className="footer">
+        <div className="footer-main">
+          <a href="#inicio" className="footer-brand"><img src="/images/logo-reformas-guadalajara-transparente.png" alt="" /></a>
+          <p>Reformas Guadalajara<br /><span>Guadalajara y provincia</span></p>
+          <div className="footer-links"><a href={whatsappLink} target="_blank" rel="noreferrer">WhatsApp</a><a href={phoneLink}>Llamar</a><a href={emailLink}>Email</a></div>
+        </div>
+        <nav className="footer-legal" aria-label="Información legal"><a href="/aviso-legal/">Aviso legal</a><a href="/privacidad/">Privacidad</a><a href="/cookies/">Cookies</a></nav>
+        <div className="footer-bottom">
+          <p className="footer-copy">© {new Date().getFullYear()} Reformas Guadalajara</p>
+          <a className="footer-credit" href="https://molvida.es/" target="_blank" rel="noreferrer">Web creada por <strong>MOLVIDA</strong> <span aria-hidden="true">↗</span></a>
+        </div>
+      </footer>
 
       <div className="mobile-bar"><a href={whatsappLink} target="_blank" rel="noreferrer"><MessageCircle size={18} /> WhatsApp</a><a href={phoneLink}><Phone size={18} /> Llamar</a></div>
 
