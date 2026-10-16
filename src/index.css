@@ -117,3 +117,40 @@ h1 em, h2 em { color: var(--forest); font-family: 'Playfair Display', Georgia, s
 @media (max-width: 440px) { h1 { font-size: 55px; }.hero h1 { font-size: 55px; }.hero-visual { height: 310px; }.hero-caption { bottom: 17px; left: 8%; padding: 13px 17px; }.hero-caption strong { font-size: 18px; }.services-grid { grid-template-columns: 1fr; }.service-card, .service-card:nth-child(2n) { border-right: 0; padding-left: 0; padding-right: 0; }.service-card a { right: 0; }.form-row { grid-template-columns: 1fr; }.contact-form-wrap { padding: 26px 20px; }.footer { grid-template-columns: 1fr; }.footer-links { order: 3; }.footer-copy { order: 4; } }
 a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; } }
+
+/* Keep service names clear and the mobile list compact. */
+.service-card h3 { color: var(--ink); font-size: 19px; font-weight: 750; letter-spacing: -.04em; line-height: 1.25; }
+.service-card p { font-size: 13px; line-height: 1.65; }
+
+@media (max-width: 800px) {
+  .service-card { min-height: 210px; }
+  .service-top { margin-bottom: 30px; }
+}
+
+@media (max-width: 440px) {
+  .services-grid { margin-top: 34px; }
+  .service-card,
+  .service-card:nth-child(2n) {
+    align-items: center;
+    column-gap: 16px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 36px;
+    min-height: 0;
+    padding: 20px 0;
+  }
+  .service-top { grid-column: 1 / -1; margin-bottom: 15px; }
+  .service-card h3 { font-size: 20px; margin-bottom: 6px; }
+  .service-card p { font-size: 13px; line-height: 1.6; max-width: none; }
+  .service-card a {
+    align-self: center;
+    bottom: auto;
+    grid-column: 2;
+    grid-row: 2 / span 2;
+    height: 34px;
+    justify-self: end;
+    position: static;
+    width: 34px;
+  }
+  .service-note { align-items: flex-start; font-size: 10px; line-height: 1.7; }
+  .note-dot { flex: 0 0 7px; margin-top: 6px; }
+}
