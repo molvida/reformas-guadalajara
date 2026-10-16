@@ -100,9 +100,9 @@ h1 em, h2 em { color: var(--forest); font-family: 'Playfair Display', Georgia, s
 .contact-form { display: flex; flex-direction: column; gap: 22px; }
 .contact-form label { color: var(--muted); display: flex; flex-direction: column; font-family: 'DM Mono', monospace; font-size: 9px; gap: 9px; letter-spacing: .07em; text-transform: uppercase; }
 .form-row { display: grid; gap: 18px; grid-template-columns: 1fr 1fr; }
-.contact-form input, .contact-form textarea { background: transparent; border: 0; border-bottom: 1px solid #D8E3EB; border-radius: 0; color: var(--ink); outline: none; padding: 5px 0 11px; resize: vertical; }
+.contact-form input, .contact-form textarea { background: transparent; border: 0; border-bottom: 1px solid #D8E3EB; border-radius: 0; color: var(--ink); font-family: 'Manrope', sans-serif; font-size: 16px; font-weight: 500; letter-spacing: normal; line-height: 1.55; outline: none; padding: 5px 0 11px; resize: vertical; text-transform: none; }
 .contact-form input:focus, .contact-form textarea:focus { border-color: var(--forest); }
-.contact-form input::placeholder, .contact-form textarea::placeholder { color: #8DA0B3; font-family: 'Manrope', sans-serif; font-size: 12px; }
+.contact-form input::placeholder, .contact-form textarea::placeholder { color: #8DA0B3; font-family: 'Manrope', sans-serif; font-size: 14px; font-weight: 400; letter-spacing: normal; opacity: 1; }
 .success-message { align-items: flex-start; display: flex; flex-direction: column; justify-content: center; min-height: 350px; }
 .success-icon { align-items: center; background: var(--yellow); border-radius: 50%; color: #fff; display: flex; height: 54px; justify-content: center; margin-bottom: 24px; width: 54px; }
 .success-message h3 { font-size: 26px; letter-spacing: -.04em; margin-bottom: 12px; }
