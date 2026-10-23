@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://reformas-guadalajara.vercel.app/sitemap.xml
+Sitemap: https://reformasytejadosguadalajara.es/sitemap.xml
