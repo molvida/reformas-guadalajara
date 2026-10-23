@@ -34,6 +34,8 @@ const services = [
 const projects = [
   {
     image: '/images/projects/tejado-teja.jpg',
+    width: 1400,
+    height: 1050,
     title: 'Cubierta de teja',
     category: 'Tejados',
     alt: 'Cubierta de teja árabe vista desde el tejado, con chimenea y ventana de cubierta',
@@ -42,6 +44,8 @@ const projects = [
   },
   {
     image: '/images/projects/tejado-pizarra.jpg',
+    width: 921,
+    height: 523,
     title: 'Cubierta de pizarra',
     category: 'Tejados',
     alt: 'Cubierta de pizarra con su cumbrera, vista desde la altura',
@@ -50,6 +54,8 @@ const projects = [
   },
   {
     image: '/images/projects/canalon-detalle.jpg',
+    width: 1400,
+    height: 1050,
     title: 'Detalle de canalón',
     category: 'Canalones',
     alt: 'Canalón pintado de gris bajo el alero, junto a la bajante',
@@ -58,6 +64,8 @@ const projects = [
   },
   {
     image: '/images/projects/canalon-impermeabilizado.jpg',
+    width: 1400,
+    height: 1050,
     title: 'Canalón impermeabilizado',
     category: 'Canalones',
     alt: 'Interior de un canalón impermeabilizado visto desde la cubierta',
@@ -66,6 +74,8 @@ const projects = [
   },
   {
     image: '/images/projects/fachada-pintada-detalle.jpg',
+    width: 1050,
+    height: 1400,
     title: 'Fachada pintada',
     category: 'Fachadas',
     alt: 'Muro exterior pintado de rojo junto a una vivienda de ladrillo',
@@ -74,6 +84,8 @@ const projects = [
   },
   {
     image: '/images/projects/fachada-pintada-general.jpg',
+    width: 1050,
+    height: 1400,
     title: 'Fachada pintada, vista general',
     category: 'Fachadas',
     alt: 'Muro largo pintado de rojo bajo el alero de tejado',
@@ -82,6 +94,8 @@ const projects = [
   },
   {
     image: '/images/projects/terraza-impermeabilizada.jpg',
+    width: 1400,
+    height: 1050,
     title: 'Terraza impermeabilizada',
     category: 'Otros trabajos',
     alt: 'Terraza con el suelo impermeabilizado en tono ocre y muro de ladrillo',
@@ -90,6 +104,8 @@ const projects = [
   },
   {
     image: '/images/projects/patio-alicatado.jpg',
+    width: 1400,
+    height: 1050,
     title: 'Patio alicatado',
     category: 'Otros trabajos',
     alt: 'Patio alicatado con baldosas terracota y escalera metálica',
@@ -144,7 +160,7 @@ function App() {
     <div className="site-shell">
       <header className="topbar">
         <a href="#inicio" className="brand" onClick={closeMenu} aria-label="Reformas Guadalajara, inicio">
-          <img src="/images/logo-reformas-guadalajara-transparente.png" alt="Reformas Guadalajara" />
+          <img src="/images/logo-reformas-guadalajara-transparente.png" alt="" />
         </a>
         <nav className={`main-nav ${menuOpen ? 'is-open' : ''}`}>
           <a href="#servicios" onClick={closeMenu}>Servicios</a>
@@ -162,8 +178,8 @@ function App() {
           <div className="hero-grid">
             <div className="hero-copy">
               <p className="eyebrow"><span className="eyebrow-line" /> Reformas en Guadalajara y provincia</p>
-              <h1>Tu casa, <em>bien hecha.</em></h1>
-              <p className="hero-text">Soluciones eficaces para tejados, impermeabilizaciones y reformas que están pensadas para durar.</p>
+              <h1>Tejados y cubiertas en <em>Guadalajara</em></h1>
+              <p className="hero-text"><strong>Tu casa, bien hecha.</strong> Soluciones eficaces para impermeabilizaciones, tejados y reformas que están pensadas para durar.</p>
               <div className="hero-actions">
                 <a className="button button-dark" href="#contacto">Pedir presupuesto <ArrowUpRight size={18} /></a>
                 <a className="text-link" href={whatsappLink} target="_blank" rel="noreferrer"><MessageCircle size={18} /> Contactar por WhatsApp</a>
@@ -174,7 +190,7 @@ function App() {
               </div>
             </div>
             <div className="hero-visual">
-              <img className="hero-illustration" src="/images/hero-roof-illustration.png" alt="Ilustración de una cubierta de teja en perspectiva con canalón y bajante" fetchPriority="high" decoding="async" />
+              <img className="hero-illustration" src="/images/hero-roof-illustration.png" alt="Ilustración de una cubierta de teja en perspectiva con canalón y bajante" width={1254} height={1254} fetchPriority="high" decoding="async" />
               <div className="hero-caption"><span>Especialistas en</span><strong>tejados y cubiertas</strong></div>
             </div>
           </div>
@@ -219,7 +235,7 @@ function App() {
           <div className="projects-grid">
             {projects.map((project, index) => (
               <button className={`project-card project-${index + 1}`} key={project.title} onClick={() => setActiveProject(index)}>
-                <img src={project.image} alt={project.alt} loading="lazy" decoding="async" />
+                <img src={project.image} alt={project.alt} width={project.width} height={project.height} loading="lazy" decoding="async" />
                 <div className="project-overlay"><span>{project.category}</span><strong>{project.title}</strong><div className="project-view">Ver proyecto <ArrowUpRight size={16} /></div></div>
               </button>
             ))}
